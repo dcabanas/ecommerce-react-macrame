@@ -1,8 +1,8 @@
 import PropType from 'prop-types'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 const UserTab = (props) => {
-    const {children} = props
+    const { children } = props
     const [activeTab, setActiveTab] = useState(children[0].props.index || 0)
     const onClickTabItem = (index) => setActiveTab(index)
 

@@ -4,7 +4,7 @@ import PropType from 'prop-types'
 import React from 'react'
 
 const CustomTextarea = ({
-                            field, form: {touched, errors}, label, ...props
+                            field, form: { touched, errors }, label, ...props
                         }) => (
     <div className="input-group">
         {touched[field.name] && errors[field.name] ? (

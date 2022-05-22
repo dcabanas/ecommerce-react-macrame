@@ -1,6 +1,6 @@
-import {useDidMount} from 'hooks'
-import {useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import { useDidMount } from 'hooks'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import firebase from 'services/firebase'
 
 const useProduct = (id) => {
@@ -20,7 +20,7 @@ const useProduct = (id) => {
                     const doc = await firebase.getSingleProduct(id)
 
                     if (doc.exists) {
-                        const data = {...doc.data(), id: doc.ref.id}
+                        const data = { ...doc.data(), id: doc.ref.id }
 
                         if (didMount) {
                             setProduct(data)
@@ -39,7 +39,7 @@ const useProduct = (id) => {
         })()
     }, [id])
 
-    return {product, isLoading, error}
+    return { product, isLoading, error }
 }
 
 export default useProduct

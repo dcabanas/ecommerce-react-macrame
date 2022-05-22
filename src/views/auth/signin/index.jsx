@@ -1,15 +1,15 @@
-import {ArrowRightOutlined, LoadingOutlined} from '@ant-design/icons'
-import {SocialLogin} from 'components/common'
-import {CustomInput} from 'components/formik'
-import {FORGOT_PASSWORD, SIGNUP} from 'constants/routes'
-import {Field, Form, Formik} from 'formik'
-import {useDocumentTitle, useScrollTop} from 'hooks'
+import { ArrowRightOutlined, LoadingOutlined } from '@ant-design/icons'
+import { SocialLogin } from 'components/common'
+import { CustomInput } from 'components/formik'
+import { FORGOT_PASSWORD, SIGNUP } from 'constants/routes'
+import { Field, Form, Formik } from 'formik'
+import { useDocumentTitle, useScrollTop } from 'hooks'
 import PropType from 'prop-types'
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {signIn} from 'redux/actions/authActions'
-import {setAuthenticating, setAuthStatus} from 'redux/actions/miscActions'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { signIn } from 'redux/actions/authActions'
+import { setAuthenticating, setAuthStatus } from 'redux/actions/miscActions'
 import * as Yup from 'yup'
 
 const SignInSchema = Yup.object().shape({
@@ -20,8 +20,8 @@ const SignInSchema = Yup.object().shape({
     .required('Password is required.')
 })
 
-const SignIn = ({history}) => {
-    const {authStatus, isAuthenticating} = useSelector((state) => ({
+const SignIn = ({ history }) => {
+    const { authStatus, isAuthenticating } = useSelector((state) => ({
         authStatus: state.app.authStatus,
         isAuthenticating: state.app.isAuthenticating
     }))
@@ -103,7 +103,7 @@ const SignIn = ({history}) => {
                                             <div className="auth-field auth-action">
                                                 <Link
                                                     onClick={onClickLink}
-                                                    style={{textDecoration: 'underline'}}
+                                                    style={{ textDecoration: 'underline' }}
                                                     to={FORGOT_PASSWORD}
                                                 >
                                                     <span>Forgot password?</span>

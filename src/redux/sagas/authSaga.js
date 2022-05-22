@@ -10,35 +10,35 @@ import {
     SIGNOUT,
     SIGNUP
 } from 'constants/constants'
-import {SIGNIN as ROUTE_SIGNIN} from 'constants/routes'
+import { SIGNIN as ROUTE_SIGNIN } from 'constants/routes'
 import defaultAvatar from 'images/defaultAvatar.jpg'
 import defaultBanner from 'images/defaultBanner.jpg'
-import {call, put} from 'redux-saga/effects'
-import {signInSuccess, signOutSuccess} from 'redux/actions/authActions'
-import {clearBasket, setBasketItems} from 'redux/actions/basketActions'
-import {resetCheckout} from 'redux/actions/checkoutActions'
-import {resetFilter} from 'redux/actions/filterActions'
-import {setAuthenticating, setAuthStatus} from 'redux/actions/miscActions'
-import {clearProfile, setProfile} from 'redux/actions/profileActions'
-import {history} from 'routers/AppRouter'
+import { call, put } from 'redux-saga/effects'
+import { signInSuccess, signOutSuccess } from 'redux/actions/authActions'
+import { clearBasket, setBasketItems } from 'redux/actions/basketActions'
+import { resetCheckout } from 'redux/actions/checkoutActions'
+import { resetFilter } from 'redux/actions/filterActions'
+import { setAuthenticating, setAuthStatus } from 'redux/actions/miscActions'
+import { clearProfile, setProfile } from 'redux/actions/profileActions'
+import { history } from 'routers/AppRouter'
 import firebase from 'services/firebase'
 
 function* handleError(e) {
-    const obj = {success: false, type: 'auth', isError: true}
+    const obj = { success: false, type: 'auth', isError: true }
     yield put(setAuthenticating(false))
 
     switch (e.code) {
         case 'auth/network-request-failed':
-            yield put(setAuthStatus({...obj, message: 'Network error has occured. Please try again.'}))
+            yield put(setAuthStatus({ ...obj, message: 'Network error has occured. Please try again.' }))
             break
         case 'auth/email-already-in-use':
-            yield put(setAuthStatus({...obj, message: 'Email is already in use. Please use another email'}))
+            yield put(setAuthStatus({ ...obj, message: 'Email is already in use. Please use another email' }))
             break
         case 'auth/wrong-password':
-            yield put(setAuthStatus({...obj, message: 'Incorrect email or password'}))
+            yield put(setAuthStatus({ ...obj, message: 'Incorrect email or password' }))
             break
         case 'auth/user-not-found':
-            yield put(setAuthStatus({...obj, message: 'Incorrect email or password'}))
+            yield put(setAuthStatus({ ...obj, message: 'Incorrect email or password' }))
             break
         case 'auth/reset-password-error':
             yield put(setAuthStatus({
@@ -47,7 +47,7 @@ function* handleError(e) {
             }))
             break
         default:
-            yield put(setAuthStatus({...obj, message: e.message}))
+            yield put(setAuthStatus({ ...obj, message: e.message }))
             break
     }
 }
@@ -57,7 +57,7 @@ function* initRequest() {
     yield put(setAuthStatus({}))
 }
 
-function* authSaga({type, payload}) {
+function* authSaga({ type, payload }) {
     switch (type) {
         case SIGNIN:
             try {
@@ -104,7 +104,7 @@ function* authSaga({type, payload}) {
                     email: payload.email,
                     address: '',
                     basket: [],
-                    mobile: {data: {}},
+                    mobile: { data: {} },
                     role: 'USER',
                     dateJoined: ref.user.metadata.creationTime || new Date().getTime()
                 }
@@ -143,7 +143,7 @@ function* authSaga({type, payload}) {
                 }))
                 yield put(setAuthenticating(false))
             } catch (e) {
-                handleError({code: 'auth/reset-password-error'})
+                handleError({ code: 'auth/reset-password-error' })
             }
             break
         }
@@ -170,7 +170,7 @@ function* authSaga({type, payload}) {
                     email: payload.email,
                     address: '',
                     basket: [],
-                    mobile: {data: {}},
+                    mobile: { data: {} },
                     role: 'USER',
                     dateJoined: payload.metadata.creationTime
                 }

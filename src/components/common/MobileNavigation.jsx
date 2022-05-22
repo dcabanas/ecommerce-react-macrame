@@ -1,8 +1,8 @@
-import {BasketToggle} from 'components/basket'
-import {HOME, SIGNIN} from 'constants/routes'
+import { BasketToggle } from 'components/basket'
+import { HOME, SIGNIN } from 'constants/routes'
 import PropType from 'prop-types'
 import React from 'react'
-import {Link, useLocation} from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import UserNav from 'views/account/components/UserAvatar'
 import Badge from './Badge'
 import FiltersToggle from './FiltersToggle'
@@ -12,7 +12,7 @@ const Navigation = (props) => {
     const {
         isAuthenticating, basketLength, disabledPaths, user
     } = props
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
     const onClickLink = (e) => {
         if (isAuthenticating) e.preventDefault()
@@ -28,7 +28,7 @@ const Navigation = (props) => {
                 </div>
 
                 <BasketToggle>
-                    {({onClickToggle}) => (
+                    {({ onClickToggle }) => (
                         <button
                             className="button-link navigation-menu-link basket-toggle"
                             onClick={onClickToggle}
@@ -37,7 +37,7 @@ const Navigation = (props) => {
                         >
 
                             <Badge count={basketLength}>
-                                <i className="fa fa-shopping-bag" style={{fontSize: '2rem'}}/>
+                                <i className="fa fa-shopping-bag" style={{ fontSize: '2rem' }}/>
                             </Badge>
                         </button>
                     )}

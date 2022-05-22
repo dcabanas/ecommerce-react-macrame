@@ -1,5 +1,5 @@
 import PropType from 'prop-types'
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 class Handle extends Component {
     constructor(props) {
@@ -12,22 +12,22 @@ class Handle extends Component {
 
 
     onMouseEnter() {
-        this.setState({mouseOver: true})
+        this.setState({ mouseOver: true })
     }
 
     onMouseLeave() {
-        this.setState({mouseOver: false})
+        this.setState({ mouseOver: false })
     }
 
     render() {
         const {
             domain: [min, max],
-            handle: {id, value, percent},
+            handle: { id, value, percent },
             isActive,
             disabled,
             getHandleProps
         } = this.props
-        const {mouseOver} = this.state
+        const { mouseOver } = this.state
 
         return (
             <>

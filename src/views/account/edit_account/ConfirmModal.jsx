@@ -1,12 +1,12 @@
-import {CheckOutlined, CloseOutlined} from '@ant-design/icons'
-import {Modal} from 'components/common'
-import {useFormikContext} from 'formik'
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
+import { Modal } from 'components/common'
+import { useFormikContext } from 'formik'
 import PropType from 'prop-types'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-const ConfirmModal = ({onConfirmUpdate, modal}) => {
+const ConfirmModal = ({ onConfirmUpdate, modal }) => {
     const [password, setPassword] = useState('')
-    const {values} = useFormikContext()
+    const { values } = useFormikContext()
 
     return (
         <Modal

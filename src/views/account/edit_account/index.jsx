@@ -1,11 +1,11 @@
-import {EditOutlined, LoadingOutlined} from '@ant-design/icons'
-import {Boundary, ImageLoader} from 'components/common'
-import {Formik} from 'formik'
-import {useDocumentTitle, useFileHandler, useModal, useScrollTop} from 'hooks'
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {setLoading} from 'redux/actions/miscActions'
-import {updateProfile} from 'redux/actions/profileActions'
+import { EditOutlined, LoadingOutlined } from '@ant-design/icons'
+import { Boundary, ImageLoader } from 'components/common'
+import { Formik } from 'formik'
+import { useDocumentTitle, useFileHandler, useModal, useScrollTop } from 'hooks'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setLoading } from 'redux/actions/miscActions'
+import { updateProfile } from 'redux/actions/profileActions'
 import * as Yup from 'yup'
 import ConfirmModal from './ConfirmModal'
 import EditForm from './EditForm'
@@ -39,7 +39,7 @@ const EditProfile = () => {
         dispatch(setLoading(false))
     }, [])
 
-    const {profile, auth, isLoading} = useSelector((state) => ({
+    const { profile, auth, isLoading } = useSelector((state) => ({
         profile: state.profile,
         auth: state.auth,
         isLoading: state.app.loading
@@ -56,7 +56,7 @@ const EditProfile = () => {
         imageFile,
         isFileLoading,
         onFileChange
-    } = useFileHandler({avatar: {}, banner: {}})
+    } = useFileHandler({ avatar: {}, banner: {} })
 
     const update = (form, credentials = {}) => {
         dispatch(updateProfile({
@@ -78,7 +78,7 @@ const EditProfile = () => {
 
     const onConfirmUpdate = (form, password) => {
         if (password) {
-            update(form, {email: form.email, password})
+            update(form, { email: form.email, password })
         }
     }
 
@@ -128,7 +128,7 @@ const EditProfile = () => {
                                                 disabled={isLoading}
                                                 hidden
                                                 id="edit-banner"
-                                                onChange={(e) => onFileChange(e, {name: 'banner', type: 'single'})}
+                                                onChange={(e) => onFileChange(e, { name: 'banner', type: 'single' })}
                                                 type="file"
                                             />
                                             <EditOutlined/>
@@ -155,7 +155,7 @@ const EditProfile = () => {
                                                 disabled={isLoading}
                                                 hidden
                                                 id="edit-avatar"
-                                                onChange={(e) => onFileChange(e, {name: 'avatar', type: 'single'})}
+                                                onChange={(e) => onFileChange(e, { name: 'avatar', type: 'single' })}
                                                 type="file"
                                             />
                                             <EditOutlined/>

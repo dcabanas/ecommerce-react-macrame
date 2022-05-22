@@ -1,13 +1,13 @@
-import {UPDATE_EMAIL, UPDATE_PROFILE} from 'constants/constants'
-import {ACCOUNT} from 'constants/routes'
-import {displayActionMessage} from 'helpers/utils'
-import {call, put, select} from 'redux-saga/effects'
-import {history} from 'routers/AppRouter'
+import { UPDATE_EMAIL, UPDATE_PROFILE } from 'constants/constants'
+import { ACCOUNT } from 'constants/routes'
+import { displayActionMessage } from 'helpers/utils'
+import { call, put, select } from 'redux-saga/effects'
+import { history } from 'routers/AppRouter'
 import firebase from 'services/firebase'
-import {setLoading} from '../actions/miscActions'
-import {updateProfileSuccess} from '../actions/profileActions'
+import { setLoading } from '../actions/miscActions'
+import { updateProfileSuccess } from '../actions/profileActions'
 
-function* profileSaga({type, payload}) {
+function* profileSaga({ type, payload }) {
     switch (type) {
         case UPDATE_EMAIL: {
             try {
@@ -25,8 +25,8 @@ function* profileSaga({type, payload}) {
         case UPDATE_PROFILE: {
             try {
                 const state = yield select()
-                const {email, password} = payload.credentials
-                const {avatarFile, bannerFile} = payload.files
+                const { email, password } = payload.credentials
+                const { avatarFile, bannerFile } = payload.files
 
                 yield put(setLoading(true))
 
@@ -39,7 +39,7 @@ function* profileSaga({type, payload}) {
                 if (avatarFile || bannerFile) {
                     const bannerURL = bannerFile ? yield call(firebase.storeImage, state.auth.id, 'banner', bannerFile) : payload.updates.banner
                     const avatarURL = avatarFile ? yield call(firebase.storeImage, state.auth.id, 'avatar', avatarFile) : payload.updates.avatar
-                    const updates = {...payload.updates, avatar: avatarURL, banner: bannerURL}
+                    const updates = { ...payload.updates, avatar: avatarURL, banner: bannerURL }
 
                     yield call(firebase.updateProfile, state.auth.id, updates)
                     yield put(updateProfileSuccess(updates))

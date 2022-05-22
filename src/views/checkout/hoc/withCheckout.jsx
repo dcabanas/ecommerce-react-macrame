@@ -1,9 +1,9 @@
 /* eslint-disable no-nested-ternary */
-import {SIGNIN} from 'constants/routes'
-import {calculateTotal} from 'helpers/utils'
+import { SIGNIN } from 'constants/routes'
+import { calculateTotal } from 'helpers/utils'
 import React from 'react'
-import {useSelector} from 'react-redux'
-import {Redirect, withRouter} from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Redirect, withRouter } from 'react-router-dom'
 
 const withCheckout = (Component) => withRouter((props) => {
     const state = useSelector((store) => ({

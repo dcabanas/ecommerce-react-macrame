@@ -1,5 +1,5 @@
 import PropType from 'prop-types'
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 class Boundary extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class Boundary extends Component {
     }
 
     static getDerivedStateFromError() {
-        return {hasError: true}
+        return { hasError: true }
     }
 
     componentDidCatch(error) {
@@ -19,8 +19,8 @@ class Boundary extends Component {
     }
 
     render() {
-        const {hasError} = this.state
-        const {children} = this.props
+        const { hasError } = this.state
+        const { children } = this.props
 
         if (hasError) {
             return (

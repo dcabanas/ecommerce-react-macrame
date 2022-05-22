@@ -4,7 +4,7 @@ import PropType from 'prop-types'
 import React from 'react'
 
 const CustomInput = ({
-                         field, form: {touched, errors}, label, inputRef, ...props
+                         field, form: { touched, errors }, label, inputRef, ...props
                      }) => (
     <div className="input-group">
         {touched[field.name] && errors[field.name] ? (
@@ -33,7 +33,7 @@ CustomInput.propTypes = {
     form: PropType.object.isRequired,
     inputRef: PropType.oneOfType([
         PropType.func,
-        PropType.shape({current: PropType.instanceOf(Element)})
+        PropType.shape({ current: PropType.instanceOf(Element) })
     ])
 }
 

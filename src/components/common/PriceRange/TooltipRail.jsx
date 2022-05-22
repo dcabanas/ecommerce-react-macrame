@@ -1,5 +1,5 @@
 import PropType from 'prop-types'
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 const railStyle = {
     position: 'absolute',
@@ -37,23 +37,23 @@ class TooltipRail extends Component {
     }
 
     onMouseLeave() {
-        this.setState({value: null, percent: null})
+        this.setState({ value: null, percent: null })
         document.removeEventListener('mousemove', this.onMouseMove)
     }
 
     onMouseMove(e) {
-        const {activeHandleID, getEventData} = this.props
+        const { activeHandleID, getEventData } = this.props
 
         if (activeHandleID) {
-            this.setState({value: null, percent: null})
+            this.setState({ value: null, percent: null })
         } else {
             this.setState(getEventData(e))
         }
     }
 
     render() {
-        const {value, percent} = this.state
-        const {activeHandleID, getRailProps} = this.props
+        const { value, percent } = this.state
+        const { activeHandleID, getRailProps } = this.props
 
         return (
             <>

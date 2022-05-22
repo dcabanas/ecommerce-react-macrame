@@ -1,30 +1,30 @@
 /* eslint-disable no-nested-ternary */
-import {CloseCircleOutlined} from '@ant-design/icons'
+import { CloseCircleOutlined } from '@ant-design/icons'
 import PropType from 'prop-types'
 import React from 'react'
-import {shallowEqual, useDispatch, useSelector} from 'react-redux'
-import {applyFilter} from 'redux/actions/filterActions'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { applyFilter } from 'redux/actions/filterActions'
 
-const ProductAppliedFilters = ({filteredProductsCount}) => {
+const ProductAppliedFilters = ({ filteredProductsCount }) => {
     const filter = useSelector((state) => state.filter, shallowEqual)
     const fields = ['brand', 'minPrice', 'maxPrice', 'sortBy', 'keyword']
     const isFiltered = fields.some((key) => !!filter[key])
     const dispatch = useDispatch()
 
     const onRemoveKeywordFilter = () => {
-        dispatch(applyFilter({keyword: ''}))
+        dispatch(applyFilter({ keyword: '' }))
     }
 
     const onRemovePriceRangeFilter = () => {
-        dispatch(applyFilter({minPrice: 0, maxPrice: 0}))
+        dispatch(applyFilter({ minPrice: 0, maxPrice: 0 }))
     }
 
     const onRemoveBrandFilter = () => {
-        dispatch(applyFilter({brand: ''}))
+        dispatch(applyFilter({ brand: '' }))
     }
 
     const onRemoveSortFilter = () => {
-        dispatch(applyFilter({sortBy: ''}))
+        dispatch(applyFilter({ sortBy: '' }))
     }
 
     return !isFiltered ? null : (

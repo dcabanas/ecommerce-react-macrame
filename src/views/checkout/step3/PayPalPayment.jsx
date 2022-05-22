@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import {useFormikContext} from 'formik'
+import { useFormikContext } from 'formik'
 import React from 'react'
 
 const PayPalPayment = () => {
-    const {values, setValues} = useFormikContext()
+    const { values, setValues } = useFormikContext()
 
     return (
         <div className={`checkout-fieldset-collapse ${values.type === 'paypal' ? 'is-selected-payment' : ''}`}>
@@ -15,7 +15,7 @@ const PayPalPayment = () => {
                         name="type"
                         onChange={(e) => {
                             if (e.target.checked) {
-                                setValues({...values, type: 'paypal'})
+                                setValues({ ...values, type: 'paypal' })
                             }
                         }}
                         type="radio"

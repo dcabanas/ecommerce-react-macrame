@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import {CheckOutlined, LoadingOutlined} from '@ant-design/icons'
-import {ImageLoader} from 'components/common'
-import {CustomColorInput, CustomCreatableSelect, CustomInput, CustomTextarea} from 'components/formik'
-import {Field, FieldArray, Form, Formik} from 'formik'
-import {useFileHandler} from 'hooks'
+import { CheckOutlined, LoadingOutlined } from '@ant-design/icons'
+import { ImageLoader } from 'components/common'
+import { CustomColorInput, CustomCreatableSelect, CustomInput, CustomTextarea } from 'components/formik'
+import { Field, FieldArray, Form, Formik } from 'formik'
+import { useFileHandler } from 'hooks'
 import PropType from 'prop-types'
 import React from 'react'
 import * as Yup from 'yup'
 
 // Default brand names that I used. You can use what you want
 const brandOptions = [
-    {value: 'Salt Maalat', label: 'Salt Maalat'},
-    {value: 'Betsin Maalat', label: 'Betsin Maalat'},
-    {value: 'Sexbomb', label: 'Sexbomb'},
-    {value: 'Black Kibal', label: 'Black Kibal'}
+    { value: 'Salt Maalat', label: 'Salt Maalat' },
+    { value: 'Betsin Maalat', label: 'Betsin Maalat' },
+    { value: 'Sexbomb', label: 'Sexbomb' },
+    { value: 'Black Kibal', label: 'Black Kibal' }
 ]
 
 const FormSchema = Yup.object().shape({
@@ -45,7 +45,7 @@ const FormSchema = Yup.object().shape({
     .min(1, 'Please add a default color for this product.')
 })
 
-const ProductForm = ({product, onSubmit, isLoading}) => {
+const ProductForm = ({ product, onSubmit, isLoading }) => {
     const initFormikValues = {
         name: product?.name || '',
         brand: product?.brand || '',
@@ -64,7 +64,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
         isFileLoading,
         onFileChange,
         removeImage
-    } = useFileHandler({image: {}, imageCollection: product?.imageCollection || []})
+    } = useFileHandler({ image: {}, imageCollection: product?.imageCollection || [] })
 
     const onSubmitForm = (form) => {
         if (imageFile.image.file || product.imageUrl) {
@@ -92,7 +92,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                 validationSchema={FormSchema}
                 onSubmit={onSubmitForm}
             >
-                {({values, setValues}) => (
+                {({ values, setValues }) => (
                     <Form className="product-form">
                         <div className="product-form-inputs">
                             <div className="d-flex">
@@ -103,14 +103,14 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                                         type="text"
                                         label="* Product Name"
                                         placeholder="Gago"
-                                        style={{textTransform: 'capitalize'}}
+                                        style={{ textTransform: 'capitalize' }}
                                         component={CustomInput}
                                     />
                                 </div>
                                 &nbsp;
                                 <div className="product-form-field">
                                     <CustomCreatableSelect
-                                        defaultValue={{label: values.brand, value: values.brand}}
+                                        defaultValue={{ label: values.brand, value: values.brand }}
                                         name="brand"
                                         iid="brand"
                                         options={brandOptions}
@@ -156,7 +156,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                             <div className="d-flex">
                                 <div className="product-form-field">
                                     <CustomCreatableSelect
-                                        defaultValue={values.keywords.map((key) => ({value: key, label: key}))}
+                                        defaultValue={values.keywords.map((key) => ({ value: key, label: key }))}
                                         name="keywords"
                                         iid="keywords"
                                         isMulti
@@ -168,7 +168,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                                 &nbsp;
                                 <div className="product-form-field">
                                     <CustomCreatableSelect
-                                        defaultValue={values.keywords.map((key) => ({value: key, label: key}))}
+                                        defaultValue={values.keywords.map((key) => ({ value: key, label: key }))}
                                         name="sizes"
                                         iid="sizes"
                                         type="number"
@@ -220,7 +220,10 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                                                 />
                                                 <button
                                                     className="product-form-delete-image"
-                                                    onClick={() => removeImage({id: image.id, name: 'imageCollection'})}
+                                                    onClick={() => removeImage({
+                                                        id: image.id,
+                                                        name: 'imageCollection'
+                                                    })}
                                                     title="Delete Image"
                                                     type="button"
                                                 >
@@ -238,7 +241,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                                         checked={values.isFeatured}
                                         className=""
                                         id="featured"
-                                        onChange={(e) => setValues({...values, isFeatured: e.target.checked})}
+                                        onChange={(e) => setValues({ ...values, isFeatured: e.target.checked })}
                                         type="checkbox"
                                     />
                                     <label htmlFor="featured">
@@ -252,7 +255,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                                         checked={values.isRecommended}
                                         className=""
                                         id="recommended"
-                                        onChange={(e) => setValues({...values, isRecommended: e.target.checked})}
+                                        onChange={(e) => setValues({ ...values, isRecommended: e.target.checked })}
                                         type="checkbox"
                                     />
                                     <label htmlFor="recommended">
@@ -287,7 +290,7 @@ const ProductForm = ({product, onSubmit, isLoading}) => {
                                             disabled={isLoading}
                                             hidden
                                             id="product-input-file"
-                                            onChange={(e) => onFileChange(e, {name: 'image', type: 'single'})}
+                                            onChange={(e) => onFileChange(e, { name: 'image', type: 'single' })}
                                             readOnly={isLoading}
                                             type="file"
                                         />

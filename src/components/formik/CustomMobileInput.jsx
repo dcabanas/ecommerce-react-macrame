@@ -1,14 +1,14 @@
 /* eslint-disable react/forbid-prop-types */
-import {useField} from 'formik'
+import { useField } from 'formik'
 import PropType from 'prop-types'
 import React from 'react'
 import PhoneInput from 'react-phone-input-2'
 
 const CustomMobileInput = (props) => {
     const [field, meta, helpers] = useField(props)
-    const {label, placeholder, defaultValue} = props
-    const {touched, error} = meta
-    const {setValue} = helpers
+    const { label, placeholder, defaultValue } = props
+    const { touched, error } = meta
+    const { setValue } = helpers
 
     const handleChange = (value, data) => {
         const mob = {
@@ -35,7 +35,7 @@ const CustomMobileInput = (props) => {
                 style={{
                     border: touched && error ? '1px solid red' : '1px solid #cacaca'
                 }}
-                inputExtraProps={{required: true}}
+                inputExtraProps={{ required: true }}
                 onChange={handleChange}
                 placeholder={placeholder}
                 value={defaultValue.value}

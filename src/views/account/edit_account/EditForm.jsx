@@ -1,14 +1,14 @@
-import {ArrowLeftOutlined, CheckOutlined, LoadingOutlined} from '@ant-design/icons'
-import {CustomInput, CustomMobileInput} from 'components/formik'
-import {ACCOUNT} from 'constants/routes'
-import {Field, useFormikContext} from 'formik'
+import { ArrowLeftOutlined, CheckOutlined, LoadingOutlined } from '@ant-design/icons'
+import { CustomInput, CustomMobileInput } from 'components/formik'
+import { ACCOUNT } from 'constants/routes'
+import { Field, useFormikContext } from 'formik'
 import PropType from 'prop-types'
 import React from 'react'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
-const EditForm = ({isLoading, authProvider}) => {
+const EditForm = ({ isLoading, authProvider }) => {
     const history = useHistory()
-    const {values, submitForm} = useFormikContext()
+    const { values, submitForm } = useFormikContext()
 
     return (
         <div className="user-profile-details">
@@ -19,7 +19,7 @@ const EditForm = ({isLoading, authProvider}) => {
                 label="* Full Name"
                 placeholder="Enter your full name"
                 component={CustomInput}
-                style={{textTransform: 'capitalize'}}
+                style={{ textTransform: 'capitalize' }}
             />
             <Field
                 disabled={authProvider !== 'password' || isLoading}
@@ -36,7 +36,7 @@ const EditForm = ({isLoading, authProvider}) => {
                 label="Address (Will be used for checkout)"
                 placeholder="#245 Brgy. Maligalig, Arayat Pampanga, Philippines"
                 component={CustomInput}
-                style={{textTransform: 'capitalize'}}
+                style={{ textTransform: 'capitalize' }}
             />
             <CustomMobileInput
                 defaultValue={values.mobile}

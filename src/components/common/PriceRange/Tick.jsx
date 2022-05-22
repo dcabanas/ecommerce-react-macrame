@@ -1,7 +1,7 @@
 import PropType from 'prop-types'
 import React from 'react'
 
-const Tick = ({tick, count, format}) => (
+const Tick = ({ tick, count, format }) => (
     <div>
         <div
             style={{

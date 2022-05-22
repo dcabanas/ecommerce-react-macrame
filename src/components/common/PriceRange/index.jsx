@@ -1,6 +1,6 @@
 import PropType from 'prop-types'
-import React, {useState} from 'react'
-import {Handles, Rail, Slider, Ticks, Tracks} from 'react-compound-slider'
+import React, { useState } from 'react'
+import { Handles, Rail, Slider, Ticks, Tracks } from 'react-compound-slider'
 import Handle from './Handle'
 import SliderRail from './SliderRail'
 import Tick from './Tick'
@@ -41,7 +41,7 @@ const PriceRange = ({
     const inputClassName = () => (state.inputError ? 'price-range-input price-input-error' : 'price-range-input')
 
     return (
-        <div style={{height: 120, width: '100%'}}>
+        <div style={{ height: 120, width: '100%' }}>
             <div className="price-range-control">
                 <input
                     className={inputClassName()}
@@ -73,10 +73,10 @@ const PriceRange = ({
                 values={state.values}
             >
                 <Rail>
-                    {({getRailProps}) => <SliderRail getRailProps={getRailProps}/>}
+                    {({ getRailProps }) => <SliderRail getRailProps={getRailProps}/>}
                 </Rail>
                 <Handles>
-                    {({handles, activeHandleID, getHandleProps}) => (
+                    {({ handles, activeHandleID, getHandleProps }) => (
                         <div className="slider-handles">
                             {handles.map((handle) => (
                                 <Handle
@@ -91,9 +91,9 @@ const PriceRange = ({
                     )}
                 </Handles>
                 <Tracks left={false} right={false}>
-                    {({tracks, getTrackProps}) => (
+                    {({ tracks, getTrackProps }) => (
                         <div className="slider-tracks">
-                            {tracks.map(({id, source, target}) => (
+                            {tracks.map(({ id, source, target }) => (
                                 <Track
                                     key={id}
                                     source={source}
@@ -105,7 +105,7 @@ const PriceRange = ({
                     )}
                 </Tracks>
                 <Ticks count={5}>
-                    {({ticks}) => (
+                    {({ ticks }) => (
                         <div className="slider-ticks">
                             {ticks.map((tick) => (
                                 <Tick key={tick.id} tick={tick} count={ticks.length}/>

@@ -1,8 +1,8 @@
-import {LoadingOutlined} from '@ant-design/icons'
+import { LoadingOutlined } from '@ant-design/icons'
 import PropType from 'prop-types'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-const ImageLoader = ({src, alt, className}) => {
+const ImageLoader = ({ src, alt, className }) => {
     const loadedImages = {}
     const [loaded, setLoaded] = useState(loadedImages[src])
 

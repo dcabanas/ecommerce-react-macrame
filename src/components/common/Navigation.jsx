@@ -1,10 +1,10 @@
 /* eslint-disable indent */
-import {FilterOutlined, ShoppingOutlined} from '@ant-design/icons'
+import { FilterOutlined, ShoppingOutlined } from '@ant-design/icons'
 import * as ROUTE from 'constants/routes'
 import logo from 'images/logo-full.png'
-import React, {useEffect, useRef} from 'react'
-import {useSelector} from 'react-redux'
-import {Link, NavLink, useLocation} from 'react-router-dom'
+import React, { useEffect, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import UserAvatar from 'views/account/components/UserAvatar'
 import BasketToggle from '../basket/BasketToggle'
 import Badge from './Badge'
@@ -14,7 +14,7 @@ import SearchBar from './SearchBar'
 
 const Navigation = () => {
     const navbar = useRef(null)
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
     const store = useSelector((state) => ({
         basketLength: state.basket.length,
@@ -90,7 +90,7 @@ const Navigation = () => {
             <ul className="navigation-menu">
                 <li className="navigation-menu-item">
                     <BasketToggle>
-                        {({onClickToggle}) => (
+                        {({ onClickToggle }) => (
                             <button
                                 className="button-link navigation-menu-link basket-toggle"
                                 disabled={basketDisabledpathnames.includes(pathname)}
@@ -99,7 +99,7 @@ const Navigation = () => {
                             >
 
                                 <Badge count={store.basketLength}>
-                                    <ShoppingOutlined style={{fontSize: '2.4rem'}}/>
+                                    <ShoppingOutlined style={{ fontSize: '2.4rem' }}/>
                                 </Badge>
                             </button>
                         )}

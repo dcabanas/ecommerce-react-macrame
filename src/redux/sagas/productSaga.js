@@ -1,10 +1,10 @@
 /* eslint-disable indent */
-import {ADD_PRODUCT, EDIT_PRODUCT, GET_PRODUCTS, REMOVE_PRODUCT, SEARCH_PRODUCT} from 'constants/constants'
-import {ADMIN_PRODUCTS} from 'constants/routes'
-import {displayActionMessage} from 'helpers/utils'
-import {all, call, put, select} from 'redux-saga/effects'
-import {setLoading, setRequestStatus} from 'redux/actions/miscActions'
-import {history} from 'routers/AppRouter'
+import { ADD_PRODUCT, EDIT_PRODUCT, GET_PRODUCTS, REMOVE_PRODUCT, SEARCH_PRODUCT } from 'constants/constants'
+import { ADMIN_PRODUCTS } from 'constants/routes'
+import { displayActionMessage } from 'helpers/utils'
+import { all, call, put, select } from 'redux-saga/effects'
+import { setLoading, setRequestStatus } from 'redux/actions/miscActions'
+import { history } from 'routers/AppRouter'
 import firebase from 'services/firebase'
 import {
     addProductSuccess,
@@ -31,7 +31,7 @@ function* handleAction(location, message, status) {
     yield call(displayActionMessage, message, status)
 }
 
-function* productSaga({type, payload}) {
+function* productSaga({ type, payload }) {
     switch (type) {
         case GET_PRODUCTS:
             try {
@@ -61,10 +61,10 @@ function* productSaga({type, payload}) {
             try {
                 yield initRequest()
 
-                const {imageCollection} = payload
+                const { imageCollection } = payload
                 const key = yield call(firebase.generateKey)
                 const downloadURL = yield call(firebase.storeImage, key, 'products', payload.image)
-                const image = {id: key, url: downloadURL}
+                const image = { id: key, url: downloadURL }
                 let images = []
 
                 if (imageCollection.length !== 0) {
@@ -99,8 +99,8 @@ function* productSaga({type, payload}) {
             try {
                 yield initRequest()
 
-                const {image, imageCollection} = payload.updates
-                let newUpdates = {...payload.updates}
+                const { image, imageCollection } = payload.updates
+                let newUpdates = { ...payload.updates }
 
                 if (image.constructor === File && typeof image === 'object') {
                     try {
@@ -110,7 +110,7 @@ function* productSaga({type, payload}) {
                     }
 
                     const url = yield call(firebase.storeImage, payload.id, 'products', image)
-                    newUpdates = {...newUpdates, image: url}
+                    newUpdates = { ...newUpdates, image: url }
                 }
 
                 if (imageCollection.length > 1) {
@@ -131,11 +131,11 @@ function* productSaga({type, payload}) {
                         id: imageKeys[i](),
                         url
                     }))
-                    newUpdates = {...newUpdates, imageCollection: [...existingUploads, ...images]}
+                    newUpdates = { ...newUpdates, imageCollection: [...existingUploads, ...images] }
                 } else {
                     newUpdates = {
                         ...newUpdates,
-                        imageCollection: [{id: new Date().getTime(), url: newUpdates.image}]
+                        imageCollection: [{ id: new Date().getTime(), url: newUpdates.image }]
                     }
                     // add image thumbnail to image collection from newUpdates to
                     // make sure you're adding the url not the file object.
@@ -177,7 +177,7 @@ function* productSaga({type, payload}) {
                 const result = yield call(firebase.searchProducts, payload.searchKey)
 
                 if (result.products.length === 0) {
-                    yield handleError({message: 'No product found.'})
+                    yield handleError({ message: 'No product found.' })
                     yield put(clearSearchState())
                 } else {
                     yield put(searchProductSuccess({

@@ -1,14 +1,14 @@
 /* eslint-disable indent */
-import {DownOutlined, LoadingOutlined, LogoutOutlined, UserOutlined} from '@ant-design/icons'
-import {ACCOUNT} from 'constants/routes'
+import { DownOutlined, LoadingOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons'
+import { ACCOUNT } from 'constants/routes'
 import PropTypes from 'prop-types'
-import React, {useEffect, useRef} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {Link, withRouter} from 'react-router-dom'
-import {signOut} from 'redux/actions/authActions'
+import React, { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
+import { signOut } from 'redux/actions/authActions'
 
 const UserNav = () => {
-    const {profile, isAuthenticating} = useSelector((state) => ({
+    const { profile, isAuthenticating } = useSelector((state) => ({
         profile: state.profile,
         isAuthenticating: state.app.isAuthenticating
     }))
@@ -61,7 +61,7 @@ const UserNav = () => {
                     src={profile.avatar}
                 />
             </div>
-            <DownOutlined style={{fontSize: '1.2rem', marginLeft: '1rem'}}/>
+            <DownOutlined style={{ fontSize: '1.2rem', marginLeft: '1rem' }}/>
             <div className="user-nav-sub">
                 {profile.role !== 'ADMIN' && (
                     <Link

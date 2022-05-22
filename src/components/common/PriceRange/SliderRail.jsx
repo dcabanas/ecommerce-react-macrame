@@ -22,7 +22,7 @@ const railInnerStyle = {
     backgroundColor: '#d0d0d0'
 }
 
-const SliderRail = ({getRailProps}) => (
+const SliderRail = ({ getRailProps }) => (
     <div>
         <div style={railOuterStyle} {...getRailProps()} />
         <div style={railInnerStyle}/>

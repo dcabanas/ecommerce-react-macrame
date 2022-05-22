@@ -1,10 +1,10 @@
 import * as Route from 'constants/routes'
 import logo from 'images/logo-full.png'
 import React from 'react'
-import {useLocation} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const Footer = () => {
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
 
     const visibleOnlyPath = [
         Route.HOME,

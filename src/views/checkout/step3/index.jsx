@@ -1,12 +1,12 @@
-import {CHECKOUT_STEP_1} from 'constants/routes'
-import {Form, Formik} from 'formik'
-import {displayActionMessage} from 'helpers/utils'
-import {useDocumentTitle, useScrollTop} from 'hooks'
+import { CHECKOUT_STEP_1 } from 'constants/routes'
+import { Form, Formik } from 'formik'
+import { displayActionMessage } from 'helpers/utils'
+import { useDocumentTitle, useScrollTop } from 'hooks'
 import PropType from 'prop-types'
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import * as Yup from 'yup'
-import {StepTracker} from '../components'
+import { StepTracker } from '../components'
 import withCheckout from '../hoc/withCheckout'
 import CreditPayment from './CreditPayment'
 import PayPalPayment from './PayPalPayment'
@@ -29,7 +29,7 @@ const FormSchema = Yup.object().shape({
     type: Yup.string().required('Please select paymend mode')
 })
 
-const Payment = ({shipping, payment, subtotal}) => {
+const Payment = ({ shipping, payment, subtotal }) => {
     useDocumentTitle('Check Out Final Step | Salinaka')
     useScrollTop()
 

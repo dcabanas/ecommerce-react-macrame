@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import {LoadingOutlined} from '@ant-design/icons'
-import {Boundary, MessageDisplay} from 'components/common'
-import {ProductGrid} from 'components/product'
-import {useDidMount} from 'hooks'
+import { LoadingOutlined } from '@ant-design/icons'
+import { Boundary, MessageDisplay } from 'components/common'
+import { ProductGrid } from 'components/product'
+import { useDidMount } from 'hooks'
 import PropType from 'prop-types'
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {setRequestStatus} from 'redux/actions/miscActions'
-import {searchProduct} from 'redux/actions/productActions'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setRequestStatus } from 'redux/actions/miscActions'
+import { searchProduct } from 'redux/actions/productActions'
 
-const Search = ({match}) => {
-    const {searchKey} = match.params
+const Search = ({ match }) => {
+    const { searchKey } = match.params
     const dispatch = useDispatch()
     const didMount = useDidMount(true)
     const store = useSelector((state) => ({
@@ -67,7 +67,7 @@ const Search = ({match}) => {
             <div className="loader">
                 <h4>Searching Product...</h4>
                 <br/>
-                <LoadingOutlined style={{fontSize: '3rem'}}/>
+                <LoadingOutlined style={{ fontSize: '3rem' }}/>
             </div>
         </main>
     )

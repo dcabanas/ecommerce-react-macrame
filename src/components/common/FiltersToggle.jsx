@@ -1,11 +1,11 @@
-import {useModal} from 'hooks'
+import { useModal } from 'hooks'
 import PropType from 'prop-types'
 import React from 'react'
 import Filters from './Filters'
 import Modal from './Modal'
 
-const FiltersToggle = ({children}) => {
-    const {isOpenModal, onOpenModal, onCloseModal} = useModal()
+const FiltersToggle = ({ children }) => {
+    const { isOpenModal, onOpenModal, onCloseModal } = useModal()
 
     return (
         <>

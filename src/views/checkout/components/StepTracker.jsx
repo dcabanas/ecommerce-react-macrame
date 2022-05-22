@@ -1,7 +1,7 @@
 import PropType from 'prop-types'
 import React from 'react'
 
-const StepTracker = ({current}) => {
+const StepTracker = ({ current }) => {
     // eslint-disable-next-line no-nested-ternary
     const className = (step) => (current === step
         ? 'is-active-step'

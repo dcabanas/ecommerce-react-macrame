@@ -1,11 +1,11 @@
-import {CheckOutlined, LoadingOutlined} from '@ant-design/icons'
-import {useDidMount, useDocumentTitle, useScrollTop} from 'hooks'
-import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {resetPassword} from 'redux/actions/authActions'
+import { CheckOutlined, LoadingOutlined } from '@ant-design/icons'
+import { useDidMount, useDocumentTitle, useScrollTop } from 'hooks'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { resetPassword } from 'redux/actions/authActions'
 
 const ForgotPassword = () => {
-    const {authStatus, isAuthenticating} = useSelector((state) => ({
+    const { authStatus, isAuthenticating } = useSelector((state) => ({
         isAuthenticating: state.app.isAuthenticating,
         authStatus: state.app.authStatus
     }))
@@ -25,7 +25,7 @@ const ForgotPassword = () => {
     }, [authStatus, isAuthenticating])
 
     const onEmailChange = (value, error) => {
-        setField({email: value, error})
+        setField({ email: value, error })
     }
 
     const onSubmitEmail = () => {
@@ -54,7 +54,7 @@ const ForgotPassword = () => {
                 placeholder="Enter your email"
                 readOnly={isSendingForgotPWRequest || authStatus?.success}
                 type="email"
-                style={{width: '100%'}}
+                style={{ width: '100%' }}
             />
             <br/>
             <br/>

@@ -95,7 +95,7 @@ class Firebase {
         })
 
     saveBasketItems = (items, userId) =>
-        this.db.collection('users').doc(userId).update({basket: items})
+        this.db.collection('users').doc(userId).update({ basket: items })
 
     setAuthPersistence = () =>
         this.auth.setPersistence(app.auth.Auth.Persistence.LOCAL)
@@ -120,11 +120,11 @@ class Firebase {
                         const snapshot = await query.get()
                         const products = []
                         snapshot.forEach((doc) =>
-                            products.push({id: doc.id, ...doc.data()})
+                            products.push({ id: doc.id, ...doc.data() })
                         )
                         const lastKey = snapshot.docs[snapshot.docs.length - 1]
 
-                        resolve({products, lastKey})
+                        resolve({ products, lastKey })
                     } catch (e) {
                         reject(e?.message || ':( Failed to fetch products.')
                     }
@@ -147,11 +147,11 @@ class Firebase {
                         if (!didTimeout) {
                             const products = []
                             snapshot.forEach((doc) =>
-                                products.push({id: doc.id, ...doc.data()})
+                                products.push({ id: doc.id, ...doc.data() })
                             )
                             const lastKey = snapshot.docs[snapshot.docs.length - 1]
 
-                            resolve({products, lastKey, total})
+                            resolve({ products, lastKey, total })
                         }
                     } catch (e) {
                         if (didTimeout) return
@@ -198,14 +198,14 @@ class Firebase {
 
                         if (!nameSnaps.empty) {
                             nameSnaps.forEach((doc) => {
-                                searchedNameProducts.push({id: doc.id, ...doc.data()})
+                                searchedNameProducts.push({ id: doc.id, ...doc.data() })
                             })
                             lastKey = nameSnaps.docs[nameSnaps.docs.length - 1]
                         }
 
                         if (!keywordsSnaps.empty) {
                             keywordsSnaps.forEach((doc) => {
-                                searchedKeywordsProducts.push({id: doc.id, ...doc.data()})
+                                searchedKeywordsProducts.push({ id: doc.id, ...doc.data() })
                             })
                         }
 
@@ -220,7 +220,7 @@ class Firebase {
                             hash[product.id] = product
                         })
 
-                        resolve({products: Object.values(hash), lastKey})
+                        resolve({ products: Object.values(hash), lastKey })
                     }
                 } catch (e) {
                     if (didTimeout) return

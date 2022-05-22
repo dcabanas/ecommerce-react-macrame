@@ -1,23 +1,23 @@
 /* eslint-disable max-len */
-import {BasketItem, BasketToggle} from 'components/basket'
-import {Boundary, Modal} from 'components/common'
-import {CHECKOUT_STEP_1} from 'constants/routes'
+import { BasketItem, BasketToggle } from 'components/basket'
+import { Boundary, Modal } from 'components/common'
+import { CHECKOUT_STEP_1 } from 'constants/routes'
 import firebase from 'firebase/firebase'
-import {calculateTotal, displayMoney} from 'helpers/utils'
-import {useDidMount, useModal} from 'hooks'
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {useHistory, useLocation} from 'react-router-dom'
-import {clearBasket} from 'redux/actions/basketActions'
+import { calculateTotal, displayMoney } from 'helpers/utils'
+import { useDidMount, useModal } from 'hooks'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory, useLocation } from 'react-router-dom'
+import { clearBasket } from 'redux/actions/basketActions'
 
 const Basket = () => {
-    const {isOpenModal, onOpenModal, onCloseModal} = useModal()
-    const {basket, user} = useSelector((state) => ({
+    const { isOpenModal, onOpenModal, onCloseModal } = useModal()
+    const { basket, user } = useSelector((state) => ({
         basket: state.basket,
         user: state.auth
     }))
     const history = useHistory()
-    const {pathname} = useLocation()
+    const { pathname } = useLocation()
     const dispatch = useDispatch()
     const didMount = useDidMount()
 
@@ -92,7 +92,7 @@ const Basket = () => {
               </span>
                         </h3>
                         <BasketToggle>
-                            {({onClickToggle}) => (
+                            {({ onClickToggle }) => (
                                 <span
                                     className="basket-toggle button button-border button-border-gray button-small"
                                     onClick={onClickToggle}

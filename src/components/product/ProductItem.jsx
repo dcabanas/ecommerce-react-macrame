@@ -1,12 +1,12 @@
-import {CheckOutlined} from '@ant-design/icons'
-import {ImageLoader} from 'components/common'
-import {displayMoney} from 'helpers/utils'
+import { CheckOutlined } from '@ant-design/icons'
+import { ImageLoader } from 'components/common'
+import { displayMoney } from 'helpers/utils'
 import PropType from 'prop-types'
 import React from 'react'
-import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
-import {useHistory} from 'react-router-dom'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import { useHistory } from 'react-router-dom'
 
-const ProductItem = ({product, isItemOnBasket, addToBasket}) => {
+const ProductItem = ({ product, isItemOnBasket, addToBasket }) => {
     const history = useHistory()
 
     const onClickItem = () => {
@@ -20,7 +20,7 @@ const ProductItem = ({product, isItemOnBasket, addToBasket}) => {
     const itemOnBasket = isItemOnBasket ? isItemOnBasket(product.id) : false
 
     const handleAddToBasket = () => {
-        if (addToBasket) addToBasket({...product, selectedSize: product.sizes[0]})
+        if (addToBasket) addToBasket({ ...product, selectedSize: product.sizes[0] })
     }
 
     return (

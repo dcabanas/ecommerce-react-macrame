@@ -1,10 +1,10 @@
-import {FacebookOutlined, GithubFilled, GoogleOutlined} from '@ant-design/icons'
+import { FacebookOutlined, GithubFilled, GoogleOutlined } from '@ant-design/icons'
 import PropType from 'prop-types'
 import React from 'react'
-import {useDispatch} from 'react-redux'
-import {signInWithFacebook, signInWithGithub, signInWithGoogle} from 'redux/actions/authActions'
+import { useDispatch } from 'react-redux'
+import { signInWithFacebook, signInWithGithub, signInWithGoogle } from 'redux/actions/authActions'
 
-const SocialLogin = ({isLoading}) => {
+const SocialLogin = ({ isLoading }) => {
     const dispatch = useDispatch()
 
     const onSignInWithGoogle = () => {

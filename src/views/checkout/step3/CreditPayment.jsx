@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-else-return */
-import {CustomInput} from 'components/formik'
-import {Field, useFormikContext} from 'formik'
-import React, {useEffect, useRef} from 'react'
+import { CustomInput } from 'components/formik'
+import { Field, useFormikContext } from 'formik'
+import React, { useEffect, useRef } from 'react'
 
 const CreditPayment = () => {
-    const {values, setValues} = useFormikContext()
+    const { values, setValues } = useFormikContext()
     const collapseContainerRef = useRef(null)
     const cardInputRef = useRef(null)
     const containerRef = useRef(null)
@@ -33,13 +33,13 @@ const CreditPayment = () => {
 
     const onCreditModeChange = (e) => {
         if (e.target.checked) {
-            setValues({...values, type: 'credit'})
+            setValues({ ...values, type: 'credit' })
             toggleCollapse()
         }
     }
 
     const handleOnlyNumberInput = (e) => {
-        const {key} = e.nativeEvent
+        const { key } = e.nativeEvent
         if (/\D/.test(key) && key !== 'Backspace') {
             e.preventDefault()
         }
@@ -101,7 +101,7 @@ const CreditPayment = () => {
                                     label="* Name on Card"
                                     placeholder="Jane Doe"
                                     component={CustomInput}
-                                    style={{textTransform: 'capitalize'}}
+                                    style={{ textTransform: 'capitalize' }}
                                     inputRef={cardInputRef}
                                 />
                             </div>

@@ -1,14 +1,14 @@
-import {ArrowRightOutlined, LoadingOutlined} from '@ant-design/icons'
-import {SocialLogin} from 'components/common'
-import {CustomInput} from 'components/formik'
-import {SIGNIN} from 'constants/routes'
-import {Field, Form, Formik} from 'formik'
-import {useDocumentTitle, useScrollTop} from 'hooks'
+import { ArrowRightOutlined, LoadingOutlined } from '@ant-design/icons'
+import { SocialLogin } from 'components/common'
+import { CustomInput } from 'components/formik'
+import { SIGNIN } from 'constants/routes'
+import { Field, Form, Formik } from 'formik'
+import { useDocumentTitle, useScrollTop } from 'hooks'
 import PropType from 'prop-types'
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {signUp} from 'redux/actions/authActions'
-import {setAuthenticating, setAuthStatus} from 'redux/actions/miscActions'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { signUp } from 'redux/actions/authActions'
+import { setAuthenticating, setAuthStatus } from 'redux/actions/miscActions'
 import * as Yup from 'yup'
 
 const SignInSchema = Yup.object().shape({
@@ -24,8 +24,8 @@ const SignInSchema = Yup.object().shape({
     .min(4, 'Name should be at least 4 characters.')
 })
 
-const SignUp = ({history}) => {
-    const {isAuthenticating, authStatus} = useSelector((state) => ({
+const SignUp = ({ history }) => {
+    const { isAuthenticating, authStatus } = useSelector((state) => ({
         isAuthenticating: state.app.isAuthenticating,
         authStatus: state.app.authStatus
     }))
@@ -88,7 +88,7 @@ const SignUp = ({history}) => {
                                                 type="text"
                                                 label="* Full Name"
                                                 placeholder="John Doe"
-                                                style={{textTransform: 'capitalize'}}
+                                                style={{ textTransform: 'capitalize' }}
                                                 component={CustomInput}
                                             />
                                         </div>

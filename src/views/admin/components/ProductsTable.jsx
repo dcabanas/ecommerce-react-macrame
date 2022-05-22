@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-prop-types */
 import PropType from 'prop-types'
 import React from 'react'
-import {ProductItem} from '.'
+import { ProductItem } from '.'
 
-const ProductsTable = ({filteredProducts}) => (
+const ProductsTable = ({ filteredProducts }) => (
     <div>
         {filteredProducts.length > 0 && (
             <div className="grid grid-product grid-count-6">

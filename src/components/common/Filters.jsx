@@ -1,15 +1,15 @@
 /* eslint-disable no-nested-ternary */
-import {useDidMount} from 'hooks'
+import { useDidMount } from 'hooks'
 import PropType from 'prop-types'
-import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {useHistory, withRouter} from 'react-router-dom'
-import {applyFilter, resetFilter} from 'redux/actions/filterActions'
-import {selectMax, selectMin} from 'selectors/selector'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory, withRouter } from 'react-router-dom'
+import { applyFilter, resetFilter } from 'redux/actions/filterActions'
+import { selectMax, selectMin } from 'selectors/selector'
 import PriceRange from './PriceRange'
 
-const Filters = ({closeModal}) => {
-    const {filter, isLoading, products} = useSelector((state) => ({
+const Filters = ({ closeModal }) => {
+    const { filter, isLoading, products } = useSelector((state) => ({
         filter: state.filter,
         isLoading: state.app.loading,
         products: state.products.items
@@ -40,17 +40,17 @@ const Filters = ({closeModal}) => {
 
 
     const onPriceChange = (minVal, maxVal) => {
-        setFilter({...field, minPrice: minVal, maxPrice: maxVal})
+        setFilter({ ...field, minPrice: minVal, maxPrice: maxVal })
     }
 
     const onBrandFilterChange = (e) => {
         const val = e.target.value
 
-        setFilter({...field, brand: val})
+        setFilter({ ...field, brand: val })
     }
 
     const onSortFilterChange = (e) => {
-        setFilter({...field, sortBy: e.target.value})
+        setFilter({ ...field, sortBy: e.target.value })
     }
 
     const onApplyFilter = () => {

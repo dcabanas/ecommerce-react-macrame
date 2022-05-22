@@ -1,6 +1,6 @@
 import PropType from 'prop-types'
 
-const BasketToggle = ({children}) => {
+const BasketToggle = ({ children }) => {
     const onClickToggle = () => {
         if (document.body.classList.contains('is-basket-open')) {
             document.body.classList.remove('is-basket-open')
@@ -19,7 +19,7 @@ const BasketToggle = ({children}) => {
         }
     })
 
-    return children({onClickToggle})
+    return children({ onClickToggle })
 }
 
 BasketToggle.propTypes = {

@@ -34,11 +34,11 @@ const InputColor = (props) => {
                     )}
                     {selectedColor && (
                         <>
-                            <div className="color-item" style={{background: selectedColor}}/>
+                            <div className="color-item" style={{ background: selectedColor }}/>
                             <h4
                                 className="text-link"
                                 onClick={handleAddSelectedColor}
-                                style={{textDecoration: 'underline'}}
+                                style={{ textDecoration: 'underline' }}
                                 role="presentation"
                             >
                                 <i className="fa fa-check"/>
@@ -63,7 +63,7 @@ const InputColor = (props) => {
                             onClick={() => remove(index)}
                             className="color-item color-item-deletable"
                             title={`Remove ${color}`}
-                            style={{backgroundColor: color}}
+                            style={{ backgroundColor: color }}
                             role="presentation"
                         />
                     ))}

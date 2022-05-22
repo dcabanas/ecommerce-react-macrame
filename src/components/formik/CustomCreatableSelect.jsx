@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import {useField} from 'formik'
+import { useField } from 'formik'
 import PropType from 'prop-types'
 import React from 'react'
 import CreatableSelect from 'react-select/creatable'
@@ -9,8 +9,8 @@ const CustomCreatableSelect = (props) => {
     const {
         options, defaultValue, label, placeholder, isMulti, type, iid
     } = props
-    const {touched, error} = meta
-    const {setValue} = helpers
+    const { touched, error } = meta
+    const { setValue } = helpers
 
     const handleChange = (newValue) => {
         if (Array.isArray(newValue)) {
@@ -23,7 +23,7 @@ const CustomCreatableSelect = (props) => {
 
     const handleKeyDown = (e) => {
         if (type === 'number') {
-            const {key} = e.nativeEvent
+            const { key } = e.nativeEvent
             if (/\D/.test(key) && key !== 'Backspace') {
                 e.preventDefault()
             }

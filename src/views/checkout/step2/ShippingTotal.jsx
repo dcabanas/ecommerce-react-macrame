@@ -1,10 +1,10 @@
-import {useFormikContext} from 'formik'
-import {displayMoney} from 'helpers/utils'
+import { useFormikContext } from 'formik'
+import { displayMoney } from 'helpers/utils'
 import PropType from 'prop-types'
 import React from 'react'
 
-const ShippingTotal = ({subtotal}) => {
-    const {values} = useFormikContext()
+const ShippingTotal = ({ subtotal }) => {
+    const { values } = useFormikContext()
 
     return (
         <div className="checkout-total d-flex-end padding-right-m">

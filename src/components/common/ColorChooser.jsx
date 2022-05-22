@@ -1,7 +1,7 @@
 import PropType from 'prop-types'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-const ColorChooser = ({availableColors, onSelectedColorChange}) => {
+const ColorChooser = ({ availableColors, onSelectedColorChange }) => {
     const [selectedColor, setSelectedColor] = useState('')
 
     const setColor = (color) => {
@@ -15,7 +15,7 @@ const ColorChooser = ({availableColors, onSelectedColorChange}) => {
                     className={selectedColor === color ? 'color-item color-item-selected' : 'color-item'}
                     key={color}
                     onClick={() => setColor(color)}
-                    style={{backgroundColor: color}}
+                    style={{ backgroundColor: color }}
                     role="presentation"
                 />
             ))}

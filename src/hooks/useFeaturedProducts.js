@@ -1,5 +1,5 @@
-import {useDidMount} from 'hooks'
-import {useEffect, useState} from 'react'
+import { useDidMount } from 'hooks'
+import { useEffect, useState } from 'react'
 import firebase from 'services/firebase'
 
 const useFeaturedProducts = (itemsCount) => {
@@ -25,7 +25,7 @@ const useFeaturedProducts = (itemsCount) => {
 
                 docs.forEach((snap) => {
                     const data = snap.data()
-                    items.push({id: snap.ref.id, ...data})
+                    items.push({ id: snap.ref.id, ...data })
                 })
 
                 if (didMount) {

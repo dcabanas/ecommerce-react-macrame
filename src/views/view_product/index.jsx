@@ -1,17 +1,17 @@
-import {ArrowLeftOutlined, LoadingOutlined} from '@ant-design/icons'
-import {ColorChooser, ImageLoader, MessageDisplay} from 'components/common'
-import {ProductShowcaseGrid} from 'components/product'
-import {RECOMMENDED_PRODUCTS, SHOP} from 'constants/routes'
-import {displayMoney} from 'helpers/utils'
-import {useBasket, useDocumentTitle, useProduct, useRecommendedProducts, useScrollTop} from 'hooks'
-import React, {useEffect, useRef, useState} from 'react'
-import {Link, useParams} from 'react-router-dom'
+import { ArrowLeftOutlined, LoadingOutlined } from '@ant-design/icons'
+import { ColorChooser, ImageLoader, MessageDisplay } from 'components/common'
+import { ProductShowcaseGrid } from 'components/product'
+import { RECOMMENDED_PRODUCTS, SHOP } from 'constants/routes'
+import { displayMoney } from 'helpers/utils'
+import { useBasket, useDocumentTitle, useProduct, useRecommendedProducts, useScrollTop } from 'hooks'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import Select from 'react-select'
 
 const ViewProduct = () => {
-    const {id} = useParams()
-    const {product, isLoading, error} = useProduct(id)
-    const {addToBasket, isItemOnBasket} = useBasket(id)
+    const { id } = useParams()
+    const { product, isLoading, error } = useProduct(id)
+    const { addToBasket, isItemOnBasket } = useBasket(id)
     useScrollTop()
     useDocumentTitle(`View ${product?.name || 'Item'}`)
 
@@ -43,7 +43,7 @@ const ViewProduct = () => {
     }
 
     const handleAddToBasket = () => {
-        addToBasket({...product, selectedColor, selectedSize: selectedSize || product.sizes[0]})
+        addToBasket({ ...product, selectedColor, selectedSize: selectedSize || product.sizes[0] })
     }
 
     return (
@@ -52,7 +52,7 @@ const ViewProduct = () => {
                 <div className="loader">
                     <h4>Loading Product...</h4>
                     <br/>
-                    <LoadingOutlined style={{fontSize: '3rem'}}/>
+                    <LoadingOutlined style={{ fontSize: '3rem' }}/>
                 </div>
             )}
             {error && (
@@ -112,7 +112,7 @@ const ViewProduct = () => {
                                         label: `${size} mm`,
                                         value: size
                                     }))}
-                                    styles={{menu: (provided) => ({...provided, zIndex: 10})}}
+                                    styles={{ menu: (provided) => ({ ...provided, zIndex: 10 }) }}
                                 />
                             </div>
                             <br/>
@@ -139,7 +139,7 @@ const ViewProduct = () => {
                             </div>
                         </div>
                     </div>
-                    <div style={{marginTop: '10rem'}}>
+                    <div style={{ marginTop: '10rem' }}>
                         <div className="display-header">
                             <h1>Recommended</h1>
                             <Link to={RECOMMENDED_PRODUCTS}>See All</Link>

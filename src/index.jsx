@@ -1,9 +1,9 @@
-import {Preloader} from 'components/common'
+import { Preloader } from 'components/common'
 import 'normalize.css/normalize.css'
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 import 'react-phone-input-2/lib/style.css'
-import {onAuthStateFail, onAuthStateSuccess} from 'redux/actions/authActions'
+import { onAuthStateFail, onAuthStateSuccess } from 'redux/actions/authActions'
 import configureStore from 'redux/store/store'
 import 'styles/style.scss'
 import WebFont from 'webfontloader'
@@ -16,7 +16,7 @@ WebFont.load({
     }
 })
 
-const {store, persistor} = configureStore()
+const { store, persistor } = configureStore()
 const root = document.getElementById('app')
 
 // Render the preloader on initial load

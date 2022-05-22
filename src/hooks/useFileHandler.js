@@ -1,12 +1,12 @@
 /* eslint-disable no-alert */
-import {useState} from 'react'
-import {v4 as uuidv4} from 'uuid'
+import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const useFileHandler = (initState) => {
     const [imageFile, setImageFile] = useState(initState)
     const [isFileLoading, setFileLoading] = useState(false)
 
-    const removeImage = ({id, name}) => {
+    const removeImage = ({ id, name }) => {
         const items = imageFile[name].filter((item) => item.id !== id)
 
         setImageFile({
@@ -15,7 +15,7 @@ const useFileHandler = (initState) => {
         })
     }
 
-    const onFileChange = (event, {name, type}) => {
+    const onFileChange = (event, { name, type }) => {
         const val = event.target.value
         const img = event.target.files[0]
         const size = img.size / 1024 / 1024
@@ -34,7 +34,7 @@ const useFileHandler = (initState) => {
                 reader.addEventListener('load', (e) => {
                     setImageFile((oldFiles) => ({
                         ...oldFiles,
-                        [name]: [...oldFiles[name], {file, url: e.target.result, id: uuidv4()}]
+                        [name]: [...oldFiles[name], { file, url: e.target.result, id: uuidv4() }]
                     }))
                 })
                 reader.readAsDataURL(file)
@@ -47,7 +47,7 @@ const useFileHandler = (initState) => {
             reader.addEventListener('load', (e) => {
                 setImageFile({
                     ...imageFile,
-                    [name]: {file: img, url: e.target.result}
+                    [name]: { file: img, url: e.target.result }
                 })
                 setFileLoading(false)
             })
