@@ -108,7 +108,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                                     />
                                 </div>
                                 &nbsp;
-                                <div className="product-form-field">
+                                <div className="product-form-field" style={{ marginTop: '10px' }}>
                                     <CustomCreatableSelect
                                         defaultValue={{ label: values.brand, value: values.brand }}
                                         name="brand"

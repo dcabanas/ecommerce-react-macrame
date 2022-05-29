@@ -7,7 +7,7 @@ const PageNotFound = ({ history }) => {
 
     return (
         <div className="page-not-found">
-            <h1>:( Page you are looking for doesn&apos;t exists.</h1>
+            <h1>:( Page you are looking for doesn&apos;t exist.</h1>
             <br/>
             <button
                 className="button"

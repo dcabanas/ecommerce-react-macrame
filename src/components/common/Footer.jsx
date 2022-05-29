@@ -2,6 +2,7 @@ import * as Route from 'constants/routes'
 import logo from 'images/logo-full.png'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import logoInsta from 'images/instagram24.png'
 
 const Footer = () => {
     const { pathname } = useLocation()
@@ -14,13 +15,15 @@ const Footer = () => {
     return !visibleOnlyPath.includes(pathname) ? null : (
         <footer className="footer">
             <div className="footer-col-1">
-                <strong>
+                {/*
+                    <strong>
           <span>
             Developed by
               {' '}
               <a href="https://github.com/jgudo">JULIUS GUEVARRA</a>
           </span>
                 </strong>
+                */}
             </div>
             <div className="footer-col-2">
                 <img alt="Footer logo" className="footer-logo" src={logo}/>
@@ -30,12 +33,18 @@ const Footer = () => {
                 </h5>
             </div>
             <div className="footer-col-3">
-                <strong>
-          <span>
-            Fork this project &nbsp;
-              <a href="https://github.com/jgudo/ecommerce-react">HERE</a>
-          </span>
+                {/*
+                    <strong>
+                  <span>
+                    Fork this project &nbsp;
+                      <a href="https://github.com/jgudo/ecommerce-react">HERE</a>
+                  </span>
                 </strong>
+                */}
+                <a href="https://www.instagram.com/macra.me_withlove/" target="_blank">
+                    <img src={logoInsta} alt=""/>
+                </a>
+
             </div>
         </footer>
     )

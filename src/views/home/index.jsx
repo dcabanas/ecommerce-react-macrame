@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 
 const Home = () => {
-    useDocumentTitle('Salinaka | Home')
+    useDocumentTitle('MacraMe | Home')
     useScrollTop()
 
     const {
@@ -36,8 +36,8 @@ const Home = () => {
                             <strong>Clarity</strong>
                         </h1>
                         <p>
-                            Buying eyewear should leave you happy and good-looking, with money in your pocket.
-                            Glasses, sunglasses, and contacts—we’ve got your eyes covered.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.
                         </p>
                         <br/>
                         <Link to={SHOP} className="button">
